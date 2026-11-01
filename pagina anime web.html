@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AnimeBirth – Quizzes de anime: personajes, poderes y más</title>
+  <meta name="description" content="Descubre tu destino en el mundo del anime: quizzes de Naruto, One Piece, Bleach, Jujutsu Kaisen, Hunter x Hunter, Dragon Ball y más. Gratis, en español e inglés.">
+  <meta name="keywords" content="quiz anime, naruto, one piece, bleach, jujutsu kaisen, hunter x hunter, dragon ball, demon slayer, attack on titan, my hero academia, solo leveling, AnimeBirth">
+  <meta name="author" content="AnimeBirth">
+  <meta name="theme-color" content="#120a2a">
+
+  <!-- Open Graph (vista previa al compartir) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AnimeBirth – Quizzes de anime">
+  <meta property="og:description" content="¿Qué personaje, poder o universo de anime eres? Descúbrelo gratis.">
+  <meta property="og:site_name" content="AnimeBirth">
+  <!-- Cuando publiques, quita los símbolos de comentario y pon tu URL real:
+  <meta property="og:url" content="https://TU-USUARIO.github.io/animebirth/">
+  <link rel="canonical" href="https://TU-USUARIO.github.io/animebirth/">
+  -->
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="anime web.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AnimeBirth",
+    "description": "Quizzes gratuitos de anime: personajes, poderes, cumpleaños y signos zodiacales.",
+    "inLanguage": ["es", "en"]
+  }
+  </script>
+</head>
+<body>
+  <div id="stars" class="stars" aria-hidden="true"></div>
+  <div class="nebula" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#" class="logo" id="logo-link" aria-label="AnimeBirth">
+      <span class="logo-icon" aria-hidden="true">✨</span>
+      <span class="logo-text">AnimeBirth</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Menú / Menu">
+      <a href="#" data-i18n="navHome">Inicio</a>
+      <a href="#animes" data-i18n="navAnimes">Animes</a>
+      <a href="#universal" class="nav-universal" data-i18n="navUniversal">Anime Universal</a>
+      <a href="#quizzes" data-i18n="navQuizzes">Quizzes</a>
+    </nav>
+
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== INICIO ========== -->
+    <section id="view-home" class="view">
+      <div class="hero">
+        <h1 class="hero-title" data-i18n="heroTitle">Descubre tu destino en el mundo del anime</h1>
+        <p class="hero-tagline">AnimeBirth ✨</p>
+        <p class="hero-text" data-i18n="heroText">Quizzes gratuitos sobre tus animes favoritos.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#animes" data-i18n="heroCtaAnimes">Explorar animes</a>
+          <a class="btn btn-secondary" href="#universal" data-i18n="heroCtaUniversal">Anime Universal</a>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <label for="search-input" class="sr-only" data-i18n="searchLabel">Buscar</label>
+        <input type="search" id="search-input" data-i18n-ph="searchPlaceholder" placeholder="Busca un anime, personaje o quiz…" autocomplete="off" spellcheck="false">
+      </div>
+      <div id="filter-chips" class="chips" role="group" aria-label="Filtrar por categoría"></div>
+
+      <section id="sec-animes" class="block">
+        <h2 class="section-title" data-i18n="exploreTitle">Explorar por anime</h2>
+        <p class="section-sub" data-i18n="exploreSub">Elige un anime y entra en sus quizzes.</p>
+        <div id="anime-grid" class="anime-grid"></div>
+      </section>
+
+      <a href="#universal" class="universal-banner">
+        <span class="universal-badge" data-i18n="universalBadge">✨ Sección especial</span>
+        <span class="universal-title" data-i18n="universalTitle">Anime Universal</span>
+        <span class="universal-text" data-i18n="universalText">Personajes de todos los animes en un solo lugar.</span>
+        <span id="universal-emojis" class="universal-emojis" aria-hidden="true"></span>
+        <span class="universal-cta" data-i18n="universalCta">Entrar al universo →</span>
+      </a>
+
+      <section id="sec-quizzes" class="block">
+        <h2 class="section-title" data-i18n="allQuizzes">Todos los quizzes</h2>
+        <p id="quiz-count" class="section-sub"></p>
+        <div id="quiz-list" class="quiz-list"></div>
+      </section>
+
+      <p id="no-results" class="no-results" hidden data-i18n="noResults">No encontramos resultados.</p>
+
+      <p class="privacy-note" data-i18n="privacy">No guardamos ni enviamos tus datos.</p>
+    </section>
+
+    <!-- ========== PÁGINA DE UN ANIME / UNIVERSAL ========== -->
+    <section id="view-list" class="view" hidden>
+      <button type="button" id="back-list-btn" class="btn btn-ghost" data-i18n="back">← Volver</button>
+      <div id="list-container"></div>
+    </section>
+
+    <!-- ========== QUIZ ACTIVO ========== -->
+    <section id="view-quiz" class="view" hidden>
+      <button type="button" id="back-btn" class="btn btn-ghost" data-i18n="back">← Volver</button>
+      <div id="quiz-container"></div>
+    </section>
+
+    <noscript>
+      <p class="noscript">AnimeBirth necesita JavaScript para funcionar. / AnimeBirth needs JavaScript to work.</p>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <p data-i18n="disclaimer">AnimeBirth es un proyecto de fans, gratuito y sin fines oficiales.</p>
+    <p class="footer-small">© <span id="year"></span> AnimeBirth</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- IMPORTANTE: data.js debe cargarse ANTES que script.js -->
+  <script src="anime web.js"></script>
+  <script src="anime web motor.js"></script>
+</body>
+</html>

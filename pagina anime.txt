@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AnimeBirth – Quizzes de anime por cumpleaños, signo y poderes</title>
+  <meta name="description" content="Descubre qué personaje de Naruto eres según tu cumpleaños, tu personaje de anime según tu signo zodiacal y qué poder tendrías. Quizzes gratis.">
+  <meta name="keywords" content="quiz anime, naruto cumpleaños, signo zodiacal anime, poder de anime, AnimeBirth">
+  <meta name="author" content="AnimeBirth">
+  <meta name="theme-color" content="#120a2a">
+
+  <!-- Open Graph (vista previa al compartir en redes) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AnimeBirth – Quizzes de anime">
+  <meta property="og:description" content="¿Qué personaje de anime eres según tu cumpleaños o tu signo? ¿Qué poder tendrías? Descúbrelo gratis.">
+  <meta property="og:site_name" content="AnimeBirth">
+  <!-- Cuando publiques, añade aquí tu URL real:
+  <meta property="og:url" content="https://TU-USUARIO.github.io/animebirth/">
+  <link rel="canonical" href="https://TU-USUARIO.github.io/animebirth/">
+  -->
+  <meta name="twitter:card" content="summary">
+
+  <!-- Icono de la pestaña (emoji dentro de un SVG, sin archivos extra) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Datos estructurados básicos para buscadores -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AnimeBirth",
+    "description": "Quizzes gratuitos de anime sobre cumpleaños, signos zodiacales y poderes.",
+    "inLanguage": ["es", "en"]
+  }
+  </script>
+</head>
+<body>
+  <!-- Contenedor de estrellas (lo rellena script.js) -->
+  <div id="stars" class="stars" aria-hidden="true"></div>
+  <div class="nebula" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#" class="logo" id="logo-link" aria-label="AnimeBirth">
+      <span class="logo-icon" aria-hidden="true">✨</span>
+      <span class="logo-text">AnimeBirth</span>
+    </a>
+
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== INICIO ========== -->
+    <section id="view-home" class="view">
+      <div class="hero">
+        <h1 class="hero-title">AnimeBirth</h1>
+        <p class="hero-tagline" data-i18n="tagline">Descubre tu destino anime bajo las estrellas</p>
+        <p class="hero-text" data-i18n="heroText">Quizzes gratuitos para descubrir qué personaje o poder de anime va contigo.</p>
+      </div>
+
+      <h2 class="section-title" data-i18n="chooseQuiz">Elige un quiz</h2>
+      <div id="quiz-grid" class="quiz-grid"></div>
+
+      <p class="privacy-note" data-i18n="privacy">No guardamos ni enviamos tus datos. Todo ocurre en tu dispositivo.</p>
+    </section>
+
+    <!-- ========== QUIZ ACTIVO ========== -->
+    <section id="view-quiz" class="view" hidden>
+      <button type="button" id="back-btn" class="btn btn-ghost" data-i18n="back">← Volver</button>
+      <div id="quiz-container"></div>
+    </section>
+
+    <noscript>
+      <p class="noscript">AnimeBirth necesita JavaScript para funcionar. / AnimeBirth needs JavaScript to work.</p>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <p data-i18n="disclaimer">AnimeBirth es un proyecto de fans, gratuito y sin fines oficiales. Los resultados son recreativos. Los personajes y series pertenecen a sus respectivos creadores y no hay afiliación con ellos.</p>
+    <p class="footer-small">© <span id="year"></span> AnimeBirth</p>
+  </footer>
+
+  <!-- Aviso breve para "copiado" -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
